@@ -1,0 +1,32 @@
+apps:
+  api:
+    port: 3000
+    privatePort: 4000
+    useCachingInterceptor: true
+  cacheWarmer:
+    port: 4001
+  queueWorker:
+    port: 4002
+libs:
+  common:
+    pinata:
+      pinataUrl: ${PINATA_URL}
+      pinataJwt: ${PINATA_JWT}
+      fileStorageCdnUrl: ${FILE_STORAGE_CDN_URL}
+    network: ${NETWORK}
+    urls:
+      api: ${API_URL}
+      gateway: ${GATEWAY_URL}
+    database:
+      host: 'localhost'
+      port: 27017
+      # username: 'root'
+      # password: 'root'
+      name: 'example'
+      tlsAllowInvalidCertificates: true
+    redis:
+      host: '127.0.0.1'
+      port: 6379
+    security:
+      admins: []
+    # rateLimiterSecret:

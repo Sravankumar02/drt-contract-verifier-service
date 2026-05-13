@@ -1,0 +1,28 @@
+import { DrtnestConfigService } from '@terradharitri/sdk-nestjs-common';
+import { Injectable } from '@nestjs/common';
+import { CommonConfigService } from './common.config.service';
+
+@Injectable()
+export class SdkNestjsConfigServiceImpl implements DrtnestConfigService {
+  constructor(private readonly commonConfigService: CommonConfigService) { }
+
+  getSecurityAdmins(): string[] {
+    return this.commonConfigService.config.security.admins;
+  }
+
+  getJwtSecret(): string {
+    return '';
+  }
+
+  getApiUrl(): string {
+    return this.commonConfigService.config.urls.api;
+  }
+
+  getNativeAuthMaxExpirySeconds(): number {
+    return 0;
+  }
+
+  getNativeAuthAcceptedOrigins(): string[] {
+    return [];
+  }
+}
